@@ -6,7 +6,26 @@
     <title>Stranka</title>
 </head>
 <body>
-    <h1>Welcome to Stranka!</h1>
-    <p>This is a simple Laravel page.</p>
+    
+    <div class="container" style="text-align:center;width:100%">
+        <h1>Vkládání dat do tabulky "kategorie"</h1>
+
+        <form action="dataInsert" method="post" enctype="multipart/form-data">
+            @csrf
+
+            <label for="nazev" class="control-label">nazev</label>
+            <input type="text" name="nazev" class="form-control"><br>
+
+            <label for="popis" class="control-label">popis</label>
+            <input type="text" name="popis" class="form-control"><br>
+
+            <input type="submit" class="btn brn-primary">
+
+</form>
+</div>
+
+    <a href="{{ url('/tabulka') }}" class="btn btn-primary">Přejít na tabulku</a>
+
+
 </body>
 </html>

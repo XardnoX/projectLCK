@@ -1,8 +1,28 @@
 <?php
 
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\kategorieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+
+
+Route::get('/', [kategorieController::class, 'index']);
+Route::post('dataInsert', [kategorieController::class, 'DataInsert']);
+
+Route::get('/tabulka', [DataController::class, 'DataTableIndex']);
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/index', [ProfileController::class, 'index']);
 Route::get('/dashboard', function () {
@@ -16,3 +36,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
