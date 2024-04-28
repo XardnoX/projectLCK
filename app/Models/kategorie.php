@@ -9,4 +9,9 @@ class kategorie extends Model
 {
     use HasFactory;
     protected $table = 'kategorie';
+    
+    public function deletekategorie()
+    {
+        return $this->delete(); 
+    }
 }

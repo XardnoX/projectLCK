@@ -13,8 +13,7 @@ Route::post('dataInsert', [kategorieController::class, 'DataInsert']);
 Route::get('/tabulka', [DataController::class, 'DataTableIndex']);
 
 
-
-
+Route::delete('/kategorie/{id}', [DataController::class, 'destroy'])->name('kategorie.destroy');
 
 
 
