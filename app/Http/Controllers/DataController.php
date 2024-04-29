@@ -18,21 +18,11 @@ class DataController extends Controller
 
     public function destroy($id)
     {
-        try {
-            $kategorie = Kategorie::findOrFail($id);
+      
+            $kategorie = Kategorie::find($id);
             $kategorie->delete();
 
-            if (request()->ajax()) {
-                return response()->json(['success' => 'Category successfully deleted.']);
-            }
+             return back()->with('success', 'Smazání proběhlo úspěšně!');
 
-            return redirect()->route('DataTable')->with('success', 'Category successfully deleted.');
-        } catch (\Exception $e) {
-            if (request()->ajax()) {
-                return response()->json(['error' => 'An error occurred while deleting the category.'], 500);
-            }
-
-            return redirect()->route('DataTable')->with('error', 'An error occurred while deleting the category.');
-        }
-    }
+         } 
 }
