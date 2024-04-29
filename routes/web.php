@@ -10,11 +10,11 @@ use App\Http\Controllers\Controller;
 Route::get('/', [kategorieController::class, 'index']);
 Route::post('dataInsert', [kategorieController::class, 'DataInsert']);
 
-Route::get('/kategorie', [DataController::class, 'DataTableIndex'])->name('negr');
+Route::get('/kategorie', [DataController::class, 'DataTableIndex'])->name('kategorie');
 
 
 Route::delete('/kategorie/{id}', [DataController::class, 'destroy'])->name('kategorie.destroy');
-
+Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 
 
 

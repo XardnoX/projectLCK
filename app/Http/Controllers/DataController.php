@@ -15,7 +15,15 @@ class DataController extends Controller
          return view('DataTable', ['customerData' => $customerData, 'kategorie' => $kategorie]);
        
     }
-
+    public function update(Request $request, $id)
+    {
+        $kategorie = Kategorie::find($id);
+        $kategorie->nazev = $request->nazev;
+        $kategorie->popis = $request->popis;
+        $kategorie->save();
+    
+        return back()->with('success', 'Úpravy uloženy!');
+    }
     public function destroy($id)
     {
       

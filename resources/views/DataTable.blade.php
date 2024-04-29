@@ -28,6 +28,7 @@
                 <td>{{ $cd->popis }}</td>
                 <td>
                 <button type="button" class="btn btn-danger delete-btn" data-toggle="modal" data-target="#confirmDeleteModal" data-id="{{ $cd->id }}" onclick="setFormAction('{{ $cd->id }}')">Smazat</button>
+                <button type="button" class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $cd->id }}" data-name="{{ $cd->nazev }}" data-description="{{ $cd->popis }}">Editovat</button>
                 <td>
             </tr>
         @endforeach
@@ -35,8 +36,39 @@
     </table>
     <a href="/index" class="btn btn-primary">Přejít na index</a>
 </div>
-
-<!-- Modal Confirmation -->
+<!-- edit -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editovat Kategorii</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" id="editForm">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+                    <input type="hidden" id="edit-id" name="id">
+                    <div class="form-group">
+                        <label for="edit-name">Název</label>
+                        <input type="text" class="form-control" id="edit-name" name="nazev">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-description">Popis</label>
+                        <textarea class="form-control" id="edit-description" name="popis"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zrušit</button>
+                    <button type="submit" class="btn btn-primary">Uložit Změny</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- delete -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -66,20 +98,32 @@
 
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var editForm = document.getElementById('editForm');
+    document.querySelectorAll('.edit-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var categoryId = this.getAttribute('data-id');
+            var categoryName = this.getAttribute('data-name');
+            var categoryDescription = this.getAttribute('data-description');
+
+            document.getElementById('edit-id').value = categoryId;
+            document.getElementById('edit-name').value = categoryName;
+            document.getElementById('edit-description').value = categoryDescription;
+
+            editForm.action = '/kategorie/update/' + categoryId;
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname === '/kategorie') {
         var form = document.getElementById('deleteForm');
 
-        // Attach event listeners to delete buttons
         document.querySelectorAll('.delete-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                // Retrieve the category ID from the button's data-id attribute
                 var kategorieId = this.getAttribute('data-id');
                 
-                // Set the form's action attribute
                 form.action = '/kategorie/' + kategorieId;
 
-                // Optional: Log the set action for debugging
                 console.log("Form action set for category ID: " + kategorieId);
             });
         });
