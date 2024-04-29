@@ -47,14 +47,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                Chcete doopravdy smazat tuto kategorii?
+                Chcete doopravdy smazat kategorii "{{ $cd->nazev}}"?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
                 <form id="deleteForm" method="POST">
     @csrf
     @method('DELETE')
-    <button class="btn btn-outline btn-error" type="submit" id="deleteButton1">Smazat</button>
+    <button class="btn btn-outline btn-danger" type="submit" id="deleteButton1">Smazat</button>
 </form>
             </div>
         </div>
