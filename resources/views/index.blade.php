@@ -26,7 +26,7 @@
 </form>
 </div>
 
-    <a href="{{ url('/tabulka') }}" class="btn btn-primary">Přejít na tabulku</a>
+    <a href="{{ url('/kategorie') }}" class="btn btn-primary">Přejít na tabulku</a>
 
 
 </body>
