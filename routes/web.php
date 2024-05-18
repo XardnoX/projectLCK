@@ -19,9 +19,8 @@ Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 
 
 
-Route::get('/registrace', [RegisterController::class, 'create']); // Přidána routa pro metodu GET
-Route::post('/registrace', [RegisterController::class, 'store']); // Přidána routa pro metodu POST
-
+Route::get('/registrace', [RegisterController::class, 'create']);
+Route::post('/registrace', [RegisterController::class, 'store']);
 
 
 Route::get('/index', [ProfileController::class, 'index']);
