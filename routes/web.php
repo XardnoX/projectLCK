@@ -3,6 +3,7 @@
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\kategorieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 
@@ -18,8 +19,8 @@ Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 
 
 
-
-
+Route::get('/registrace', [RegisterController::class, 'create']); // Přidána routa pro metodu GET
+Route::post('/registrace', [RegisterController::class, 'store']); // Přidána routa pro metodu POST
 
 
 
