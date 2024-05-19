@@ -34,7 +34,7 @@
             <label for="heslo">Heslo:</label>
             <input type="password" class="form-control" name="heslo" required/>
         </div>
-        <button type="submit" class="btn btn-primary">Registrovatk</button>
+        <button type="submit" class="btn btn-primary">Registrovat</button>
     </form>
 </div>
 </body>
