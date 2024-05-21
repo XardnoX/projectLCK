@@ -16,7 +16,7 @@ class kategorieController extends Controller
 
     public function DataInsert(StoreKategorieRequest $request)
     {
-        $isInsertSuccess = kategorie::insert($request->validated());
+        $isInsertSuccess = Kategorie::insert($request->validated());
         $messageKey = $isInsertSuccess ? 'success' : 'failure';
         return redirect('/index')->with('messageKey', $messageKey);
     }

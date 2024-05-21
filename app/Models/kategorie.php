@@ -12,4 +12,8 @@ class kategorie extends Model
     protected $fillable = ['nazev', 'popis','updated_at','deleted_at','created_at']; 
     use SoftDeletes;
 
+    public function stranky()
+    {
+        return $this->belongsToMany(Stranka::class, 'stranka_has_kategorie', 'kategorie_id', 'stranka_id');
+    }
 }

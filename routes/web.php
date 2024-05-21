@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\StrankaController;
+use App\Http\Controllers\DiskuseController;
 
 
 Route::get('/', [kategorieController::class, 'index']);
@@ -17,10 +19,16 @@ Route::get('/kategorie', [DataController::class, 'DataTableIndex'])->name('kateg
 Route::delete('/kategorie/{id}', [DataController::class, 'destroy'])->name('kategorie.destroy');
 Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 
-
+Route::get('/stranka/{id}', [StrankaController::class, 'show']);
+Route::get('/diskuse/{id}', [DiskuseController::class, 'show']);
 
 Route::get('/registrace', [RegisterController::class, 'create']);
 Route::post('/registrace', [RegisterController::class, 'store']);
+
+
+
+Route::get('/kategorie-stranek', [StrankaController::class, 'showCategories'])->name('kategorie-stranek');
+Route::post('/kategorie-stranek', [StrankaController::class, 'filterByCategory']);
 
 
 Route::get('/index', [ProfileController::class, 'index']);
