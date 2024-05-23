@@ -41,7 +41,7 @@
     
     <footer class="footer mt-auto py-3 bg-light text-right">
         <div class="container">
-            <span>{{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</span>
+            <span>Datum založení stránky: {{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</span>
         </div>
     </footer>
 </body>
