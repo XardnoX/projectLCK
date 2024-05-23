@@ -14,7 +14,7 @@ class StoreKategorieRequest extends FormRequest
     public function rules()
     {
         return [
-            'nazev' => 'required',
+            'nazev' => 'required|unique:kategorie,nazev',
             'popis' => 'required',
         ];
     }
@@ -23,6 +23,7 @@ class StoreKategorieRequest extends FormRequest
     {
         return [
             'nazev.required' => 'název nesmí být prázdný.',
+            'nazev.unique' => 'název musí být jedinečný.',
             'popis.required' => 'kategorie musí být popsána',
         ];
     }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Diskuse</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+@extends('layouts.app')
+@foreach ($diskuse as $diskus)
+    <title>diskuse - {{ $diskus->datum }}</title>
+    @endforeach
 </head>
 <body>
     <div class="container">
@@ -23,7 +25,6 @@
             @endforeach
         @endif
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

@@ -12,7 +12,8 @@ class DiskuseController extends Controller
     {
         $stranka = Stranka::findOrFail($id);
         $diskuse = Diskuse::where('stranka_id', $id)->get();
+        
 
-        return view('diskuse.show', compact('diskuse'));
+        return view('diskuse', compact('diskuse'));
     }
 }

@@ -15,7 +15,7 @@ class StrankaController extends Controller
         $stranka = Stranka::with(['kategorie', ])->findOrFail($id);
         $diskuse = Diskuse::where('stranka_id', $id)->get();
         $historieEditace = HistorieEditace::where('stranka_id', $id)->get();
-        return view('stranka.show', compact('stranka', 'diskuse', 'historieEditace'));
+        return view('wiki', compact('stranka', 'diskuse', 'historieEditace'));
     }
 
     public function showCategories()

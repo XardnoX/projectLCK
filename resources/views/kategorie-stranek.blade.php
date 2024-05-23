@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Kategorie Stránek</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<head> 
+    @extends('layouts.app')
+    <title>Kategorie Stránek</title>¨
+   
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container my-4 flex-grow-1">

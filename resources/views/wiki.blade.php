@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+@extends('layouts.app')
     <title>{{ $stranka->nazev }}</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container my-4 flex-grow-1">
@@ -14,7 +14,7 @@
                 {{ $kategorium->nazev }}@if(!$loop->last), @endif
             @endforeach
         </p>
-                <a href="{{ url('diskuse/' . $stranka->id) }}" class="btn btn-primary mb-3">Odkaz na diskusi</a>
+                <a href="{{ url('diskuse/' . $stranka->id) }}" class="btn btn-primary mb-3 text-right">Odkaz na diskusi</a>
             </div>
             <div class="col-md-4">
                 <img src="data:image/png;base64,{{ $stranka->obrazek_id }}" class="img-fluid float-right mb-3" />
