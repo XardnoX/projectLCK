@@ -20,7 +20,7 @@ class RegisterController extends Controller
         $request->validate([
             'krestni_jmeno' => 'required|string|max:255',
             'prijmeni' => 'required|string|max:255',
-            'prezdivka' => 'required|string|max:255',
+            'prezdivka' => 'required|string|max:255|unique:uzivatel,prezdivka',
             'heslo' => 'required|string|min:8',
         ]);
 
