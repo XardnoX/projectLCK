@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\StoreUzivatel;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -28,7 +26,7 @@ class RegisterController extends Controller
             'krestni_jmeno' => $request->get('krestni_jmeno'),
             'prijmeni' => $request->get('prijmeni'),
             'prezdivka' => $request->get('prezdivka'),
-            'heslo' => Hash::make($request->get('heslo')),
+            'heslo' => Hash::make($request->get('heslo')), // Ensure password is hashed
             'datum_registrace' => now(),
         ]);
 

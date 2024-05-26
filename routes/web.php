@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\StrankaController;
 use App\Http\Controllers\DiskuseController;
+use App\Http\Controllers\PrihlaseniController;
 
 
-Route::get('/', [kategorieController::class, 'index']);
+Route::get('/', [kategorieController::class, 'index'])->name('index');
 Route::post('dataInsert', [kategorieController::class, 'DataInsert']);
 
 Route::get('/kategorie', [DataController::class, 'DataTableIndex'])->name('kategorie');
@@ -22,8 +23,6 @@ Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 Route::get('/stranka/{id}', [StrankaController::class, 'show']);
 Route::get('/diskuse/{id}', [DiskuseController::class, 'show']);
 
-Route::get('/registrace', [RegisterController::class, 'create']);
-Route::post('/registrace', [RegisterController::class, 'store']);
 
 
 
@@ -42,6 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
+Route::get('/prihlaseni', [PrihlaseniController::class, 'show'])->name('prihlaseni');
+Route::post('/prihlaseni', [PrihlaseniController::class, 'loginPost'])->name('prihlaseni.post');
+
+Route::get('/registrace', [RegisterController::class, 'create']);
+Route::post('/registrace', [RegisterController::class, 'store']);
 require __DIR__.'/auth.php';
 
 

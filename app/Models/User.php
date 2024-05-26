@@ -9,7 +9,9 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
     protected $table = 'uzivatel';
+
     protected $fillable = [
         'krestni_jmeno',
         'prijmeni',
@@ -18,14 +20,12 @@ class User extends Authenticatable
         'datum_registrace',
     ];
 
-   
-
     protected $hidden = [
         'heslo',
     ];
 
     protected $casts = [
         'datum_registrace' => 'datetime',
-        'heslo' => 'hashed',
     ];
 }
+
