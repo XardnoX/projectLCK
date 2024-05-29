@@ -28,7 +28,7 @@
         @endforeach
         </tbody>
     </table>
-    <a href="/index" class="btn btn-primary">Přejít na vytvoření kategorie</a>
+ 
 </div>
 <!-- edit -->
 <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">

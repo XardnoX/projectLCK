@@ -21,7 +21,7 @@ Route::delete('/kategorie/{id}', [DataController::class, 'destroy'])->name('kate
 Route::put('/kategorie/update/{id}', [DataController::class, 'update']);
 
 Route::get('/stranka/{id}', [StrankaController::class, 'show']);
-Route::get('/diskuse/{id}', [DiskuseController::class, 'show']);
+Route::get('/diskuse/{id}', [DiskuseController::class, 'show'])->name('diskuse');
 
 
 

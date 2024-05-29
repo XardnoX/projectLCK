@@ -5,7 +5,7 @@
     <title>{{ $stranka->nazev }}</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <div class="container my-4 flex-grow-1">
+    <div class="container my-4">
         <h1>{{ $stranka->nazev }}</h1>
         <div class="row">
             <div class="col-md-8">
@@ -37,12 +37,12 @@
                 @endforeach
             </tbody>
         </table>
+         
+            <span>Datum založení stránky: {{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</span>
+      
     </div>
     
-    <footer class="footer mt-auto py-3 bg-light text-right">
-        <div class="container">
-            <span>Datum založení stránky: {{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</span>
-        </div>
-    </footer>
+       
+    
 </body>
 </html>

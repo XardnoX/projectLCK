@@ -24,7 +24,7 @@
 </form>
 </div>
 
-    <a href="{{ url('/kategorie') }}" class="btn btn-primary">Přejít na tabulku</a>
+    
 
 
     @if (session('message'))
