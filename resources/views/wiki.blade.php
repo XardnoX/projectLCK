@@ -17,7 +17,9 @@
                 <a href="{{ url('diskuse/' . $stranka->id) }}" class="btn btn-primary mb-3 text-right">Odkaz na diskusi</a>
             </div>
             <div class="col-md-4">
-                <img src="data:image/png;base64,{{ $stranka->obrazek_id }}" class="img-fluid float-right mb-3" />
+                
+            <a href="{{ url('obrazek/'. $stranka->id) }}" class="btn btn-primary mb-3 text-right">Odkaz na obrázek</a>
+
             </div>
         </div>
         

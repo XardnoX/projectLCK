@@ -7,6 +7,7 @@ use App\Models\Stranka;
 use App\Models\Diskuse;
 use App\Models\HistorieEditace;
 use App\Models\Kategorie;
+use App\Models\Obrazek;
 
 class StrankaController extends Controller
 {
@@ -16,6 +17,7 @@ class StrankaController extends Controller
         $diskuse = Diskuse::where('stranka_id', $id)->get();
         $historieEditace = HistorieEditace::where('stranka_id', $id)->get();
         return view('wiki', compact('stranka', 'diskuse', 'historieEditace'));
+        
     }
 
     public function showCategories()
@@ -31,4 +33,5 @@ class StrankaController extends Controller
         $stranky = $kategorium->stranky;
         return view('kategorie-stranek', compact('kategorie', 'stranky'));
     }
+
 }

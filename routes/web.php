@@ -11,8 +11,15 @@ use App\Http\Controllers\DiskuseController;
 use App\Http\Controllers\PrihlaseniController;
 
 
-Route::get('/', [kategorieController::class, 'index'])->name('index');
+Route::get('/', [kategorieController::class, 'index'])->name('index')->middleware('auth');;
 Route::post('dataInsert', [kategorieController::class, 'DataInsert']);
+
+Route::get('/index', [ProfileController::class, 'index'])->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('/kategorie', [DataController::class, 'DataTableIndex'])->name('kategorie');
 
@@ -24,7 +31,8 @@ Route::get('/stranka/{id}', [StrankaController::class, 'show']);
 Route::get('/diskuse/{id}', [DiskuseController::class, 'show'])->name('diskuse');
 
 
-
+// Add a new route to the web.php file
+Route::get('obrazek/{id}', 'App\Http\Controllers\ObrazekController@showImage');
 
 Route::get('/kategorie-stranek', [StrankaController::class, 'showCategories'])->name('kategorie-stranek');
 Route::post('/kategorie-stranek', [StrankaController::class, 'filterByCategory']);
@@ -48,6 +56,11 @@ Route::post('/prihlaseni', [PrihlaseniController::class, 'loginPost'])->name('pr
 
 Route::get('/registrace', [RegisterController::class, 'create']);
 Route::post('/registrace', [RegisterController::class, 'store']);
+
+Route::get('logout', function () {
+    Auth::logout();
+    return redirect('prihlaseni');
+})->name('logout');
 require __DIR__.'/auth.php';
 
 

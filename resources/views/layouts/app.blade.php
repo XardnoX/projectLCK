@@ -47,6 +47,16 @@
                         <a class="nav-link" href="/stranka/1">Stránka</a>
                     </li>
                 </ul>
+                @auth
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link mb-0" style="color:white;font-size:20px">Jméno: {{auth()->user()->prezdivka}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('logout')}}" class="nav-link mb-0" style="color:red;font-size:20px">Odhlásit se</a>
+                    </li>
+                </ul>
+                @endauth
             </div>
         </nav>
 

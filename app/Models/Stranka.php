@@ -33,5 +33,6 @@ class Stranka extends Model
         return $this->belongsToMany(Kategorie::class, 'stranka_has_kategorie', 'stranka_id', 'kategorie_id');
     }
    
+    
 }
 

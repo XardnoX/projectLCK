@@ -24,8 +24,6 @@
 </form>
 </div>
 
-    
-
 
     @if (session('message'))
     {!! session('message') !!}

@@ -40,6 +40,7 @@ class PrihlaseniController extends Controller
 
         if ($user && Hash::check($request->input('heslo'), $user->heslo)) {
             // Uživatel byl úspěšně přihlášen
+            Auth::login($user);
             return redirect()->intended('index');
         } else {
             // Neplatné přihlašovací údaje
