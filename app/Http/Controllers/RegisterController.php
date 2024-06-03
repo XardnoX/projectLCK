@@ -32,6 +32,6 @@ class RegisterController extends Controller
 
         $uzivatel->save();
 
-        return redirect('/')->with('success', 'Registration successful');
+        return redirect('/prihlaseni')->with('success', 'Registration successful');
     }
 }
