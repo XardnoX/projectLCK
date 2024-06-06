@@ -40,10 +40,10 @@
             </tbody>
         </table>
          
-            <span>Datum založení stránky: {{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</span>
+            
       
     </div>
-    
+    <footer style=" position: fixed;left: 0;bottom: 0;width: 100%;background-color: blue;color: white;text-align: center;" class="margin-bottom">Datum založení stránky: {{ $stranka->datum_vytvoreni }} | Verze editace: {{ $editace->verze }}</footer>
        
     
 </body>

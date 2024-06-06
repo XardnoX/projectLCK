@@ -5,6 +5,10 @@
 <title>Stranka dvě</title>
 </head>
 <body> 
+
+@if (Auth::check())
+        @if (Auth::user()->prezdivka == 'admin')
+
 <div class="container">
     <h1 style="text-align:center;width:100%">Tabulka "kategorie" z databáze</h1>
     <table class="table table-dark table-striped" style="text-align:center;width:100%">
@@ -30,6 +34,8 @@
     </table>
  
 </div>
+
+
 <!-- edit -->
 <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -126,6 +132,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     </script>
+
+@elseif (Auth::user()->prezdivka != 'admin') 
+<div class="text-center">
+<h1>Pro přístup k obsahu téhle stránky musíte mít oprávnění administrátora</h1>
+    <form action="{{ url('/prihlaseni') }}" method="get">
+    <button class="btn btn-primary" type="submit">Přihlásit se</button>
+</form>
+</div>
+@endif
+@endif
+@if (!Auth::check())
+<div class="text-center">
+    <h1>Pro přístup k obsahu téhle stránky musíte mít oprávnění administrátora</h1>
+    <form action="{{ url('/prihlaseni') }}" method="get">
+        <button class="btn btn-primary" type="submit">Přihlásit se</button>
+    </form>
+</div>
+@endif
+
 </body>
 
 </html>

@@ -24,16 +24,6 @@
 </form>
 </div>
 
-@if (Auth::check())
-        @if (Auth::user()->prezdivka == 'admin')
-            <p>Admin přihlášen</p>
-        @else
-            <p>Uživatelský účet přihlášen</p>
-        @endif
-    @else
-        <p>Není přihlášen</p>
-    @endif
-
 
     @if (session('message'))
     {!! session('message') !!}
